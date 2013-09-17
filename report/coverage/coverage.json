@@ -1,0 +1,875 @@
+{
+  "instrumentation": "node-jscoverage",
+  "sloc": 50,
+  "hits": 9,
+  "misses": 41,
+  "coverage": 18,
+  "files": [
+    {
+      "filename": "/Users/asciidisco/Github/dalekjs/generator-dalek/app/index.js",
+      "coverage": 18,
+      "hits": 9,
+      "misses": 41,
+      "sloc": 50,
+      "source": {
+        "1": {
+          "source": "/**",
+          "coverage": ""
+        },
+        "2": {
+          "source": " * A generator for Yeoman.",
+          "coverage": ""
+        },
+        "3": {
+          "source": " * ",
+          "coverage": ""
+        },
+        "4": {
+          "source": " * ## Getting started",
+          "coverage": ""
+        },
+        "5": {
+          "source": " * - Make sure you have [yo](https://github.com/yeoman/yo) installed:",
+          "coverage": ""
+        },
+        "6": {
+          "source": " *     `npm install -g yo`",
+          "coverage": ""
+        },
+        "7": {
+          "source": " * - Install the generator: `npm install -g generator-dalekjs`",
+          "coverage": ""
+        },
+        "8": {
+          "source": " * - Run: `yo dalekjs`",
+          "coverage": ""
+        },
+        "9": {
+          "source": " * ",
+          "coverage": ""
+        },
+        "10": {
+          "source": " * @part Yeoman",
+          "coverage": ""
+        },
+        "11": {
+          "source": " * @api",
+          "coverage": ""
+        },
+        "12": {
+          "source": " */",
+          "coverage": ""
+        },
+        "13": {
+          "source": "",
+          "coverage": ""
+        },
+        "14": {
+          "source": "'use strict';",
+          "coverage": 1
+        },
+        "15": {
+          "source": "",
+          "coverage": ""
+        },
+        "16": {
+          "source": "var util = require('util');",
+          "coverage": 1
+        },
+        "17": {
+          "source": "var path = require('path');",
+          "coverage": 1
+        },
+        "18": {
+          "source": "var fs = require('fs');",
+          "coverage": 1
+        },
+        "19": {
+          "source": "var yeoman = require('yeoman-generator');",
+          "coverage": 1
+        },
+        "20": {
+          "source": "",
+          "coverage": ""
+        },
+        "21": {
+          "source": "",
+          "coverage": ""
+        },
+        "22": {
+          "source": "var DalekjsGenerator = module.exports = function DalekjsGenerator(args, options) {",
+          "coverage": 1
+        },
+        "23": {
+          "source": "  yeoman.generators.Base.apply(this, arguments);",
+          "coverage": 0
+        },
+        "24": {
+          "source": "",
+          "coverage": ""
+        },
+        "25": {
+          "source": "  this.on('end', function () {",
+          "coverage": 0
+        },
+        "26": {
+          "source": "    this.installDependencies({ skipInstall: options['skip-install'], bower: false });",
+          "coverage": 0
+        },
+        "27": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "28": {
+          "source": "",
+          "coverage": ""
+        },
+        "29": {
+          "source": "  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));",
+          "coverage": 0
+        },
+        "30": {
+          "source": "};",
+          "coverage": ""
+        },
+        "31": {
+          "source": "",
+          "coverage": ""
+        },
+        "32": {
+          "source": "util.inherits(DalekjsGenerator, yeoman.generators.Base);",
+          "coverage": 1
+        },
+        "33": {
+          "source": "",
+          "coverage": ""
+        },
+        "34": {
+          "source": "DalekjsGenerator.prototype.askFor = function askFor() {",
+          "coverage": 1
+        },
+        "35": {
+          "source": "  var cb = this.async();",
+          "coverage": 0
+        },
+        "36": {
+          "source": "",
+          "coverage": ""
+        },
+        "37": {
+          "source": "  var prompts = [];",
+          "coverage": 0
+        },
+        "38": {
+          "source": "",
+          "coverage": ""
+        },
+        "39": {
+          "source": "  // Test setup",
+          "coverage": ""
+        },
+        "40": {
+          "source": "  // ----------",
+          "coverage": ""
+        },
+        "41": {
+          "source": "",
+          "coverage": ""
+        },
+        "42": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "43": {
+          "source": "    name: 'testfolder',",
+          "coverage": ""
+        },
+        "44": {
+          "source": "    message: 'In which folder should I generate your DalekJS tests?',",
+          "coverage": ""
+        },
+        "45": {
+          "source": "    default: 'test'",
+          "coverage": ""
+        },
+        "46": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "47": {
+          "source": "",
+          "coverage": ""
+        },
+        "48": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "49": {
+          "source": "    type: 'confirm',",
+          "coverage": ""
+        },
+        "50": {
+          "source": "    name: 'grunt',",
+          "coverage": ""
+        },
+        "51": {
+          "source": "    message: 'Would you like to run your tests with the help of grunt?',",
+          "coverage": ""
+        },
+        "52": {
+          "source": "    default: true",
+          "coverage": ""
+        },
+        "53": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "54": {
+          "source": "",
+          "coverage": ""
+        },
+        "55": {
+          "source": "  // Browser plugins",
+          "coverage": ""
+        },
+        "56": {
+          "source": "  // ---------------",
+          "coverage": ""
+        },
+        "57": {
+          "source": "",
+          "coverage": ""
+        },
+        "58": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "59": {
+          "source": "    type: 'confirm',",
+          "coverage": ""
+        },
+        "60": {
+          "source": "    name: 'browser',",
+          "coverage": ""
+        },
+        "61": {
+          "source": "    message: 'Would you like to run other browsers than PhantomJS?',",
+          "coverage": ""
+        },
+        "62": {
+          "source": "    default: false",
+          "coverage": ""
+        },
+        "63": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "64": {
+          "source": "",
+          "coverage": ""
+        },
+        "65": {
+          "source": "  var browsers = {",
+          "coverage": 0
+        },
+        "66": {
+          "source": "    type: 'checkbox',",
+          "coverage": ""
+        },
+        "67": {
+          "source": "    name: 'browsers',",
+          "coverage": ""
+        },
+        "68": {
+          "source": "    message: 'Please select a browser',",
+          "coverage": ""
+        },
+        "69": {
+          "source": "    choices: [],",
+          "coverage": ""
+        },
+        "70": {
+          "source": "    when: function (props) {",
+          "coverage": ""
+        },
+        "71": {
+          "source": "      return props.browser;",
+          "coverage": 0
+        },
+        "72": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "73": {
+          "source": "  };",
+          "coverage": ""
+        },
+        "74": {
+          "source": "",
+          "coverage": ""
+        },
+        "75": {
+          "source": "  browsers.choices.push({",
+          "coverage": 0
+        },
+        "76": {
+          "source": "    value: 'chrome',",
+          "coverage": ""
+        },
+        "77": {
+          "source": "    name: 'Google Chrome',",
+          "coverage": ""
+        },
+        "78": {
+          "source": "    checked: false",
+          "coverage": ""
+        },
+        "79": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "80": {
+          "source": "",
+          "coverage": ""
+        },
+        "81": {
+          "source": "  browsers.choices.push({",
+          "coverage": 0
+        },
+        "82": {
+          "source": "    value: 'firefox',",
+          "coverage": ""
+        },
+        "83": {
+          "source": "    name: 'Mozilla Firefox & Firefox OS',",
+          "coverage": ""
+        },
+        "84": {
+          "source": "    checked: false",
+          "coverage": ""
+        },
+        "85": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "86": {
+          "source": "",
+          "coverage": ""
+        },
+        "87": {
+          "source": "  browsers.choices.push({",
+          "coverage": 0
+        },
+        "88": {
+          "source": "    value: 'android',",
+          "coverage": ""
+        },
+        "89": {
+          "source": "    name: 'Chrome on Android',",
+          "coverage": ""
+        },
+        "90": {
+          "source": "    checked: false",
+          "coverage": ""
+        },
+        "91": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "92": {
+          "source": "",
+          "coverage": ""
+        },
+        "93": {
+          "source": "  if (process.platform === 'darwin') {",
+          "coverage": 0
+        },
+        "94": {
+          "source": "    browsers.choices.push({",
+          "coverage": 0
+        },
+        "95": {
+          "source": "      value: 'ios',",
+          "coverage": ""
+        },
+        "96": {
+          "source": "      name: 'Safari on iOS',",
+          "coverage": ""
+        },
+        "97": {
+          "source": "      checked: false",
+          "coverage": ""
+        },
+        "98": {
+          "source": "    });",
+          "coverage": ""
+        },
+        "99": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "100": {
+          "source": "",
+          "coverage": ""
+        },
+        "101": {
+          "source": "  if (process.platform === 'win32') {",
+          "coverage": 0
+        },
+        "102": {
+          "source": "    browsers.choices.push({",
+          "coverage": 0
+        },
+        "103": {
+          "source": "      value: 'ie',",
+          "coverage": ""
+        },
+        "104": {
+          "source": "      name: 'Microsoft Internet Explorer',",
+          "coverage": ""
+        },
+        "105": {
+          "source": "      checked: false",
+          "coverage": ""
+        },
+        "106": {
+          "source": "    });",
+          "coverage": ""
+        },
+        "107": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "108": {
+          "source": "",
+          "coverage": ""
+        },
+        "109": {
+          "source": "  prompts.push(browsers);",
+          "coverage": 0
+        },
+        "110": {
+          "source": "",
+          "coverage": ""
+        },
+        "111": {
+          "source": "  // Reporter plugins",
+          "coverage": ""
+        },
+        "112": {
+          "source": "  // ----------------",
+          "coverage": ""
+        },
+        "113": {
+          "source": "",
+          "coverage": ""
+        },
+        "114": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "115": {
+          "source": "    type: 'confirm',",
+          "coverage": ""
+        },
+        "116": {
+          "source": "    name: 'reporter',",
+          "coverage": ""
+        },
+        "117": {
+          "source": "    message: 'Would you like to install some additional reporters (HTML, jUnitXML, etc.)?',",
+          "coverage": ""
+        },
+        "118": {
+          "source": "    default: false",
+          "coverage": ""
+        },
+        "119": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "120": {
+          "source": "",
+          "coverage": ""
+        },
+        "121": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "122": {
+          "source": "    type: 'checkbox',",
+          "coverage": ""
+        },
+        "123": {
+          "source": "    name: 'reporters',",
+          "coverage": ""
+        },
+        "124": {
+          "source": "    message: 'What more would you like?',",
+          "coverage": ""
+        },
+        "125": {
+          "source": "    choices: [{",
+          "coverage": ""
+        },
+        "126": {
+          "source": "      name: 'HTML',",
+          "coverage": ""
+        },
+        "127": {
+          "source": "      value: 'reporterHtml',",
+          "coverage": ""
+        },
+        "128": {
+          "source": "      checked: true",
+          "coverage": ""
+        },
+        "129": {
+          "source": "    }, {",
+          "coverage": ""
+        },
+        "130": {
+          "source": "      name: 'jUnit',",
+          "coverage": ""
+        },
+        "131": {
+          "source": "      value: 'reporterjUnit',",
+          "coverage": ""
+        },
+        "132": {
+          "source": "      checked: false",
+          "coverage": ""
+        },
+        "133": {
+          "source": "    }],",
+          "coverage": ""
+        },
+        "134": {
+          "source": "    when: function (props) {",
+          "coverage": ""
+        },
+        "135": {
+          "source": "      return props.reporter;",
+          "coverage": 0
+        },
+        "136": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "137": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "138": {
+          "source": "",
+          "coverage": ""
+        },
+        "139": {
+          "source": "  // Suite scaffolding",
+          "coverage": ""
+        },
+        "140": {
+          "source": "  // -----------------",
+          "coverage": ""
+        },
+        "141": {
+          "source": "",
+          "coverage": ""
+        },
+        "142": {
+          "source": "  // should I add a basic test for you",
+          "coverage": ""
+        },
+        "143": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "144": {
+          "source": "    type: 'confirm',",
+          "coverage": ""
+        },
+        "145": {
+          "source": "    name: 'generateDummySuite',",
+          "coverage": ""
+        },
+        "146": {
+          "source": "    message: 'Would you like me to add a basic test for you?',",
+          "coverage": ""
+        },
+        "147": {
+          "source": "    default: true",
+          "coverage": ""
+        },
+        "148": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "149": {
+          "source": "",
+          "coverage": ""
+        },
+        "150": {
+          "source": "  // testsuite name",
+          "coverage": ""
+        },
+        "151": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "152": {
+          "source": "    name: 'suitname',",
+          "coverage": ""
+        },
+        "153": {
+          "source": "    message: 'What is the name of your first testsuite?',",
+          "coverage": ""
+        },
+        "154": {
+          "source": "    default: 'First test',",
+          "coverage": ""
+        },
+        "155": {
+          "source": "    when: function (props) {",
+          "coverage": ""
+        },
+        "156": {
+          "source": "      return props.generateDummySuite;",
+          "coverage": 0
+        },
+        "157": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "158": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "159": {
+          "source": "",
+          "coverage": ""
+        },
+        "160": {
+          "source": "  // javascript or coffeescript",
+          "coverage": ""
+        },
+        "161": {
+          "source": "  prompts.push({",
+          "coverage": 0
+        },
+        "162": {
+          "source": "    type: 'confirm',",
+          "coverage": ""
+        },
+        "163": {
+          "source": "    name: 'isCoffee',",
+          "coverage": ""
+        },
+        "164": {
+          "source": "    message: 'Would you like to write your tests in CoffeeScript?',",
+          "coverage": ""
+        },
+        "165": {
+          "source": "    default: false,",
+          "coverage": ""
+        },
+        "166": {
+          "source": "    when: function (props) {",
+          "coverage": ""
+        },
+        "167": {
+          "source": "      return props.generateDummySuite;",
+          "coverage": 0
+        },
+        "168": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "169": {
+          "source": "  });",
+          "coverage": ""
+        },
+        "170": {
+          "source": "",
+          "coverage": ""
+        },
+        "171": {
+          "source": "  this.prompt(prompts, function (props) {",
+          "coverage": 0
+        },
+        "172": {
+          "source": "    this.testfolder = props.testfolder;",
+          "coverage": 0
+        },
+        "173": {
+          "source": "    this.grunt = props.grunt;",
+          "coverage": 0
+        },
+        "174": {
+          "source": "    this.browser = props.browser;",
+          "coverage": 0
+        },
+        "175": {
+          "source": "    this.browsers = props.browsers;",
+          "coverage": 0
+        },
+        "176": {
+          "source": "    this.reporter = props.reporter;",
+          "coverage": 0
+        },
+        "177": {
+          "source": "    this.reporters = props.reporters;",
+          "coverage": 0
+        },
+        "178": {
+          "source": "    this.generateDummySuite = props.generateDummySuite;",
+          "coverage": 0
+        },
+        "179": {
+          "source": "    this.isCoffee = props.isCoffee;",
+          "coverage": 0
+        },
+        "180": {
+          "source": "",
+          "coverage": ""
+        },
+        "181": {
+          "source": "    cb();",
+          "coverage": 0
+        },
+        "182": {
+          "source": "  }.bind(this));",
+          "coverage": ""
+        },
+        "183": {
+          "source": "};",
+          "coverage": ""
+        },
+        "184": {
+          "source": "",
+          "coverage": ""
+        },
+        "185": {
+          "source": "DalekjsGenerator.prototype.app = function app() {",
+          "coverage": 1
+        },
+        "186": {
+          "source": "  // generate the folder where the dalekjs tests should be put",
+          "coverage": ""
+        },
+        "187": {
+          "source": "  //this.mkdir(this.testfolder);",
+          "coverage": ""
+        },
+        "188": {
+          "source": "",
+          "coverage": ""
+        },
+        "189": {
+          "source": "  // check if a package json exists, if not, copy over a basic one",
+          "coverage": ""
+        },
+        "190": {
+          "source": "  if (!fs.existsSync(process.cwd() + '/package.json')) {",
+          "coverage": 0
+        },
+        "191": {
+          "source": "    //this.copy('_package.json', 'package.json');",
+          "coverage": ""
+        },
+        "192": {
+          "source": "  } else {",
+          "coverage": ""
+        },
+        "193": {
+          "source": "    // modify package.json",
+          "coverage": ""
+        },
+        "194": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "195": {
+          "source": "",
+          "coverage": ""
+        },
+        "196": {
+          "source": "  // check if we should add grunt to the mix",
+          "coverage": ""
+        },
+        "197": {
+          "source": "  if (this.grunt) {",
+          "coverage": 0
+        },
+        "198": {
+          "source": "    // check if a package json exists, if not, copy over a basic one",
+          "coverage": ""
+        },
+        "199": {
+          "source": "    if (!fs.existsSync(process.cwd() + '/Gruntfile.js')) {",
+          "coverage": 0
+        },
+        "200": {
+          "source": "      //this.copy('_Gruntfile.json', 'Gruntfile.js');",
+          "coverage": ""
+        },
+        "201": {
+          "source": "    } else {",
+          "coverage": ""
+        },
+        "202": {
+          "source": "      // Give hints on how to add dalek to the gruntfile",
+          "coverage": ""
+        },
+        "203": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "204": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "205": {
+          "source": "  // generate a dummy testsuite & testcase",
+          "coverage": ""
+        },
+        "206": {
+          "source": "  if (this.generateDummySuite) {",
+          "coverage": 0
+        },
+        "207": {
+          "source": "    //this.copy('_dummyTest.js', this.testfolder + '/' + this.testname + '.js');",
+          "coverage": ""
+        },
+        "208": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "209": {
+          "source": "",
+          "coverage": ""
+        },
+        "210": {
+          "source": "};",
+          "coverage": ""
+        },
+        "211": {
+          "source": "",
+          "coverage": ""
+        }
+      }
+    }
+  ],
+  "stats": {
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2013-09-17T13:51:16.010Z",
+    "end": "2013-09-17T13:51:16.010Z",
+    "duration": 0
+  },
+  "tests": [],
+  "failures": [],
+  "passes": []
+}
