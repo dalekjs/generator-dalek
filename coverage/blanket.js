@@ -1,1 +1,0 @@
-require("blanket")({pattern: [require("fs").realpathSync(__dirname + "/../app/index.js")]});
